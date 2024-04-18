@@ -16,8 +16,8 @@ public class BankAccount {
     public void viewAccountInfo() {
         JOptionPane.showMessageDialog(null,
                 "Account Number: " + accountNumber + "\n" +
-                "Account Holder: " + accountHolderName + "\n" +
-                "Balance: $" + balance);
+                        "Account Holder: " + accountHolderName + "\n" +
+                        "Balance: $" + balance);
     }
 
     public void deposit(double amount) {
@@ -54,8 +54,8 @@ public class BankAccount {
     }
 
     public static void main(String[] args) {
-        BankAccount account1 = new BankAccount(123456, "John Doe", 1000);
-        BankAccount account2 = new BankAccount(789012, "Jane Smith", 2000);
+        BankAccount account1 = new BankAccount(123456, "Mobby Cheng", 1000);
+        BankAccount account2 = new BankAccount(789012, "Paul John Cabance", 2000);
 
         JFrame frame = new JFrame("Banking System");
         frame.setSize(400, 200);
