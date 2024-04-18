@@ -1,0 +1,147 @@
+import java.util.Scanner;
+
+// Define an interface for Motorcycle
+interface Motorcycle {
+    void start();
+    void accelerate();
+    void brake();
+    void displayDetails();
+}
+
+// Create abstract class implementing Motorcycle interface
+abstract class AbstractMotorcycle implements Motorcycle {
+    // Implement common methods
+    @Override
+    public void start() {
+        System.out.println("Motorcycle is starting.");
+    }
+    
+    @Override
+    public void accelerate() {
+        System.out.println("Motorcycle is accelerating.");
+    }
+    
+    @Override
+    public void brake() {
+        System.out.println("Motorcycle is braking.");
+    }
+    
+    // Abstract method for displaying brand
+    abstract void displayBrand();
+}
+
+// Concrete classes for each motorcycle brand
+class Yamaha extends AbstractMotorcycle {
+    String model;
+    
+    Yamaha(String model) {
+        this.model = model;
+    }
+    
+    @Override
+    void displayBrand() {
+        System.out.println("Yamaha Motorcycle");
+    }
+    
+    @Override
+    public void displayDetails() {
+        System.out.println("Model: " + model);
+    }
+}
+
+class Honda extends AbstractMotorcycle {
+    String model;
+    
+    Honda(String model) {
+        this.model = model;
+    }
+    
+    @Override
+    void displayBrand() {
+        System.out.println("Honda Motorcycle");
+    }
+    
+    @Override
+    public void displayDetails() {
+        System.out.println("Model: " + model);
+    }
+}
+
+class Rusi extends AbstractMotorcycle {
+    String model;
+    
+    Rusi(String model) {
+        this.model = model;
+    }
+    
+    @Override
+    void displayBrand() {
+        System.out.println("Rusi Motorcycle");
+    }
+    
+    @Override
+    public void displayDetails() {
+        System.out.println("Model: " + model);
+    }
+}
+
+class Kawasaki extends AbstractMotorcycle {
+    String model;
+    
+    Kawasaki(String model) {
+        this.model = model;
+    }
+    
+    @Override
+    void displayBrand() {
+        System.out.println("Kawasaki Motorcycle");
+    }
+    
+    @Override
+    public void displayDetails() {
+        System.out.println("Model: " + model);
+    }
+}
+
+// Main class
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Prompt user for motorcycle brand
+        System.out.print("Enter brand (e.g., Yamaha, Honda, Rusi, Kawasaki): ");
+        String brand = scanner.nextLine();
+        
+        // Create motorcycle object based on brand
+        AbstractMotorcycle motorcycle;
+        switch (brand.toLowerCase()) {
+            case "yamaha":
+                motorcycle = new Yamaha("Sniper155");
+                break;
+            case "honda":
+                motorcycle = new Honda("Click");
+                break;
+            case "rusi":
+                motorcycle = new Rusi("Sigma");
+                break;
+            case "kawasaki":
+                motorcycle = new Kawasaki("Barako");
+                break;
+            default:
+                System.out.println("Invalid brand!");
+                scanner.close();
+                return;
+        }
+        
+        // Display motorcycle details
+        motorcycle.displayBrand();
+        motorcycle.displayDetails();
+        
+        // Perform actions
+        motorcycle.start();
+        motorcycle.accelerate();
+        motorcycle.brake();
+        
+        scanner.close();
+    }
+}
